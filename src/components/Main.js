@@ -11,11 +11,19 @@ import ReactDOM from 'react-dom';
        }
 
      generateNumber () {
+       const animation_el = (
+            <div class="text-center">
+            <div class="spinner-border text-info" role="status">
+             <span class="sr-only">Loading...</span>
+             </div>
+            </div>
+       );
+       ReactDOM.render(animation_el, document.querySelector('.computer_icons_wrapper')); 
          const max = 3;
          const min = 1;
          let computer_element;
          const random_number = Math.floor(Math.random()*(max-min+1)+min);
-         console.log(random_number)
+         console.log(random_number);
          switch(random_number){
             case 1:
                 computer_element = (
@@ -33,7 +41,9 @@ import ReactDOM from 'react-dom';
                  );
             break;            
          }
-        ReactDOM.render(computer_element, document.querySelector('.computer_icons_wrapper')); 
+         setTimeout(() => {
+            ReactDOM.render(computer_element, document.querySelector('.computer_icons_wrapper')); 
+          }, 500);
         
       }
    
