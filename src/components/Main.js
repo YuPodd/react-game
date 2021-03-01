@@ -4,6 +4,7 @@ import paper from '../assets/paper.png';
 import scissors from '../assets/scissors.png';
 
  class Main extends Component {
+          
       render() {
         return (
             <main>
@@ -11,9 +12,9 @@ import scissors from '../assets/scissors.png';
                 <section className="user_wrapper">
               <h4>You:</h4>
               <div className="user_icons_wrapper">
-               <button type="button" className="btn btn-outline-warning"><img src={rock} className="rock" alt="rock" /></button>
-               <button type="button" className="btn btn-outline-warning"><img src={paper} className="paper" alt="paper" /></button>
-               <button type="button" className="btn btn-outline-warning"><img src={scissors} className="scissors" alt="scissors" /></button>
+               <button type="button" value="rock!" className="user_button btn btn-outline-warning"><img src={rock} className="rock" alt="rock"  onClick={(e) => alert(e.target.alt)}/></button>
+               <button type="button" value="paper!" className="user_button btn btn-outline-warning"><img src={paper} className="paper" alt="paper" onClick={(e) => alert(e.target.alt)}/></button>
+               <button type="button" value="scissors!" className="user_button btn btn-outline-warning"><img src={scissors} className="scissors" alt="scissors" onClick={(e) => alert(e.target.alt)} /></button>
                </div>
               </section>
               <section className="computer_wrapper">
