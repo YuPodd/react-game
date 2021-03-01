@@ -62,8 +62,12 @@ import ReactDOM from 'react-dom';
               <section className="computer_wrapper">
               <h4>Computer:</h4>
               <div className="computer_icons_wrapper">
-              
-              
+              </div>
+              </section>
+              <section className="score_wrapper">
+              <h4>Score:</h4>
+              <div className="score bg-light">
+                0
               </div>
               </section>
               </div>
