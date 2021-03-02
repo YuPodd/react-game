@@ -9,7 +9,8 @@ import ReactDOM from 'react-dom';
         super(props);
         this.state = {
           user: "null",
-          computer: "null"
+          computer: "null",
+          score: 0
         };
       }
     chooseElement(e){
@@ -81,16 +82,35 @@ import ReactDOM from 'react-dom';
                 console.log('win-win')
             }  if (computer === "rock" && user === "paper"){
                 console.log('user + 1 to score, user win')
+                this.setState({
+                  score:  this.state.score + 1
+                });
+               
             } else if (computer === "rock" && user === "scissors"){
                 console.log('user - 1 to score, comp win')
+                this.setState({
+                  score:  this.state.score - 1
+                });
             } else if (computer === "paper" && user === "rock"){
                 console.log('computer + 1 to score, comp win')
+                this.setState(score => ({
+                  score: this.state.score - 1
+                }))
             } else if (computer === "paper" && user === "scissors"){
                 console.log('user + 1 to score,user win')
+                this.setState({
+                  score:  this.state.score + 1
+                });
             } else if (computer === "scissors" && user === "paper"){
                 console.log('user - 1 to score, comp win')
+                this.setState({
+                  score:  this.state.score - 1
+                });
             } else if (computer === "scissors" && user === "rock"){
                 console.log('user + 1 to score, user win')
+                this.setState({
+                  score:  this.state.score + 1
+                });
             }
         }
         
@@ -116,7 +136,7 @@ import ReactDOM from 'react-dom';
               <section className="score_wrapper">
               <h4>Score:</h4>
               <div className="score bg-light">
-                0
+                {this.state.score}
               </div>
               </section>
               </div>
