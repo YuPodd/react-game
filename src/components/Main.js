@@ -5,48 +5,97 @@ import scissors from '../assets/scissors.png';
 import ReactDOM from 'react-dom';
 
  class Main extends Component {
-  
-      chooseElement(e){
-        console.log(e.target.className);
+    constructor(props) {
+        super(props);
+        this.state = {
+          user: "null",
+          computer: "null"
+        };
+      }
+    chooseElement(e){
+        let chosenUserElement = e.target.className;
+        console.log(chosenUserElement);
+        this.setState({
+          user: chosenUserElement
+          });
+     
        }
-
-     generateNumber () {
-       const animation_el = (
-            <div class="text-center">
-            <div class="spinner-border text-info" role="status">
-             <span class="sr-only">Loading...</span>
-             </div>
-            </div>
-       );
-       ReactDOM.render(animation_el, document.querySelector('.computer_icons_wrapper')); 
+    generateAnimation () {
+    const animation_el = (
+        <div className="text-center">
+        <div className="spinner-border text-info" role="status">
+         <span className="sr-only"></span>
+         </div>
+        </div>
+        );
+   ReactDOM.render(animation_el, document.querySelector('.computer_icons_wrapper')); 
+    }
+    generateNumber () {
          const max = 3;
          const min = 1;
          let computer_element;
          const random_number = Math.floor(Math.random()*(max-min+1)+min);
-         console.log(random_number);
+         
          switch(random_number){
             case 1:
+              this.setState({
+                computer: "rock"
+              });
                 computer_element = (
                     <button type="button" value="rock" className="computer_button btn btn-outline-info"><img  className="rock" src={rock} alt="rock"/></button>
                   );
+                  
                   break;
             case 2:
+              this.setState({
+                computer:  "paper"
+              });
                computer_element = (
                     <button type="button" value="paper" className="computer_button btn btn-outline-info"><img  className="paper" src={paper} alt="paper"/></button>
                   );
+                 
                   break;  
             case 3:
+              this.setState({
+                computer:  "scissors"
+              });
                computer_element = (
                   <button type="button" value="scissors" className="computer_button btn btn-outline-info"><img  className="scissors" src={scissors} alt="scissors"/></button>
                  );
+                
             break;            
          }
+         
          setTimeout(() => {
             ReactDOM.render(computer_element, document.querySelector('.computer_icons_wrapper')); 
-          }, 500);
+          }, 200);
+      
+      }
+      compareElements () {
+        let computer = this.state.computer;
+        let user = this.state.user;
+        console.log(computer);
+        console.log(user);
+        if (computer !== null && user !== null){
+            if(computer === user){
+                console.log('win-win')
+            }  if (computer === "rock" && user === "paper"){
+                console.log('user + 1 to score, user win')
+            } else if (computer === "rock" && user === "scissors"){
+                console.log('user - 1 to score, comp win')
+            } else if (computer === "paper" && user === "rock"){
+                console.log('computer + 1 to score, comp win')
+            } else if (computer === "paper" && user === "scissors"){
+                console.log('user + 1 to score,user win')
+            } else if (computer === "scissors" && user === "paper"){
+                console.log('user - 1 to score, comp win')
+            } else if (computer === "scissors" && user === "rock"){
+                console.log('user + 1 to score, user win')
+            }
+        }
         
       }
-   
+         
       render() {
         return (
             <main>
@@ -54,9 +103,9 @@ import ReactDOM from 'react-dom';
                 <section className="user_wrapper">
               <h4>You:</h4>
               <div className="user_icons_wrapper">
-               <button type="button" value="rock" className="user_button btn btn-outline-warning"><img src={rock} className="rock" alt="rock" onClick={(e) => {this.chooseElement(e); this.generateNumber()}}/></button>
-               <button type="button" value="paper" className="user_button btn btn-outline-warning"><img src={paper} className="paper" alt="paper" onClick={(e) => {this.chooseElement(e); this.generateNumber()}}/></button>
-               <button type="button" value="scissors" className="user_button btn btn-outline-warning"><img src={scissors} className="scissors" alt="scissors" onClick={(e) => {this.chooseElement(e); this.generateNumber()}} /></button>
+               <button type="button" value="rock" className="user_button btn btn-outline-warning"><img src={rock} className="rock" alt="rock" onClick={(e) => {this.chooseElement(e); this.generateAnimation(); this.generateNumber(); this.compareElements()}}/></button>
+               <button type="button" value="paper" className="user_button btn btn-outline-warning"><img src={paper} className="paper" alt="paper" onClick={(e) => {this.chooseElement(e); this.generateAnimation(); this.generateNumber(); this.compareElements()}}/></button>
+               <button type="button" value="scissors" className="user_button btn btn-outline-warning"><img src={scissors} className="scissors" alt="scissors" onClick={(e) => {this.chooseElement(e);this.generateAnimation(); this.generateNumber(); this.compareElements()}} /></button>
                </div>
               </section>
               <section className="computer_wrapper">
