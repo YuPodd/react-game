@@ -77,7 +77,7 @@ import ReactDOM from 'react-dom';
         let user = this.state.user;
         console.log(computer);
         console.log(user);
-        if (computer !== null && user !== null){
+        
             if(computer === user){
                 console.log('win-win')
             }  if (computer === "rock" && user === "paper"){
@@ -112,7 +112,7 @@ import ReactDOM from 'react-dom';
                   score:  this.state.score + 1
                 });
             }
-        }
+        
         
       }
          
@@ -139,6 +139,7 @@ import ReactDOM from 'react-dom';
                 {this.state.score}
               </div>
               </section>
+              <button type="button" className="new_game bg-light">New Game</button>
               </div>
             </main>
         )
