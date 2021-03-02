@@ -3,6 +3,7 @@ import rock from '../assets/rock.png';
 import paper from '../assets/paper.png';
 import scissors from '../assets/scissors.png';
 import ReactDOM from 'react-dom';
+import startNewGame from './NewGame'
 
  class Main extends Component {
     constructor(props) {
@@ -115,7 +116,13 @@ import ReactDOM from 'react-dom';
         
         
       }
-         
+      startNewGame (){
+        const emptyElement = '';
+            this.setState({
+                score: 0
+                });
+                ReactDOM.render(emptyElement, document.querySelector('.computer_icons_wrapper'));
+        }
       render() {
         return (
             <main>
@@ -139,7 +146,7 @@ import ReactDOM from 'react-dom';
                 {this.state.score}
               </div>
               </section>
-              <button type="button" className="new_game bg-light">New Game</button>
+              <button type="button" className="new_game btn btn-info" onClick={this.startNewGame.bind(this)}>New Game</button>
               </div>
             </main>
         )
