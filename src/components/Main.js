@@ -3,7 +3,6 @@ import rock from '../assets/rock.png';
 import paper from '../assets/paper.png';
 import scissors from '../assets/scissors.png';
 import ReactDOM from 'react-dom';
-import startNewGame from './NewGame'
 
  class Main extends Component {
     constructor(props) {
@@ -15,13 +14,11 @@ import startNewGame from './NewGame'
         };
       }
       
-      chooseElement(e){
-        let chosenUserElement = e.target.className;
-        console.log(chosenUserElement);
+    chooseElement(e){
         this.setState({
-          user: chosenUserElement
-          });
-     
+          user: e.target.className
+          }, () => { this.compareElements() });
+
        }
     generateAnimation () {
     const animation_el = (
@@ -82,6 +79,7 @@ import startNewGame from './NewGame'
         
             if(computer === user){
                 console.log('win-win')
+              
             }  if (computer === "rock" && user === "paper"){
                 console.log('user + 1 to score, user win')
                 this.setState({
@@ -113,6 +111,11 @@ import startNewGame from './NewGame'
                 this.setState({
                   score:  this.state.score + 1
                 });
+               
+            }
+            console.log(this.state.score)
+            if (this.state.score === 5){
+              alert('you win!')
             }
         
         
@@ -131,9 +134,9 @@ import startNewGame from './NewGame'
                 <section className="user_wrapper">
               <h4>You:</h4>
               <div className="user_icons_wrapper">
-               <button type="button" value="rock" className="user_button btn btn-outline-warning"><img src={rock} className="rock" alt="rock" onClick={(e) => {this.chooseElement(e); this.generateAnimation(); this.generateNumber(); this.compareElements()}}/></button>
-               <button type="button" value="paper" className="user_button btn btn-outline-warning"><img src={paper} className="paper" alt="paper" onClick={(e) => {this.chooseElement(e); this.generateAnimation(); this.generateNumber(); this.compareElements()}}/></button>
-               <button type="button" value="scissors" className="user_button btn btn-outline-warning"><img src={scissors} className="scissors" alt="scissors" onClick={(e) => {this.chooseElement(e);this.generateAnimation(); this.generateNumber(); this.compareElements()}} /></button>
+               <button type="button" value="rock" className="user_button btn btn-outline-warning"><img src={rock} className="rock" alt="rock" onClick={(e) => {this.chooseElement(e); this.generateAnimation(); this.generateNumber()}}/></button>
+               <button type="button" value="paper" className="user_button btn btn-outline-warning"><img src={paper} className="paper" alt="paper" onClick={(e) => {this.chooseElement(e); this.generateAnimation(); this.generateNumber()}}/></button>
+               <button type="button" value="scissors" className="user_button btn btn-outline-warning"><img src={scissors} className="scissors" alt="scissors" onClick={(e) => {this.chooseElement(e);this.generateAnimation(); this.generateNumber()}} /></button>
                </div>
               </section>
               <section className="computer_wrapper">
