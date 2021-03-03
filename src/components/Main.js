@@ -75,50 +75,44 @@ import ReactDOM from 'react-dom';
       compareElements () {
         let computer = this.state.computer;
         let user = this.state.user;
+        let score = this.state.score;
         console.log(computer);
         console.log(user);
-       
-            if(computer === user){
-                console.log('win-win')
-              
-            }  if (computer === "rock" && user === "paper"){
-                console.log('user + 1 to score, user win')
-                this.setState({
+        if (computer === "rock" && user === "paper"){
+               this.setState({
                   score:  this.state.score + 1
                 }, () => { this.checkScore() });
                
             } else if (computer === "rock" && user === "scissors"){
-                console.log('user - 1 to score, comp win')
-                this.setState({
+              this.setState({
                   score:  this.state.score - 1
                 }, () => { this.checkScore() });
 
             } else if (computer === "paper" && user === "rock"){
-                console.log('computer + 1 to score, comp win')
                 this.setState({
                   score: this.state.score - 1
                 }, () => { this.checkScore() });
 
             } else if (computer === "paper" && user === "scissors"){
-                console.log('user + 1 to score,user win')
-                this.setState({
+               this.setState({
                   score:  this.state.score + 1
                 }, () => { this.checkScore() });
             } else if (computer === "scissors" && user === "paper"){
-                console.log('user - 1 to score, comp win')
                 this.setState({
                   score:  this.state.score - 1
                 }, () => { this.checkScore() });
             } else if (computer === "scissors" && user === "rock"){
-                console.log('user + 1 to score, user win')
-                this.setState({
+              this.setState({
                   score:  this.state.score + 1
                 }, () => { this.checkScore() });
             }
-            
+            localStorage.setItem('user', user);
+            localStorage.setItem('computer', computer);
+           
               
       }
       checkScore (){
+        localStorage.setItem('score', this.state.score);
         if (this.state.score === 2){
          const winElement = <img  className="win" src={win} alt="win"/>
           alert('you win!');
@@ -138,7 +132,7 @@ import ReactDOM from 'react-dom';
                 });
         ReactDOM.render(emptyElement, document.querySelector('.computer_icons_wrapper'));
       }
-
+   
       render() {
         return (
             <main>
