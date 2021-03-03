@@ -1,28 +1,52 @@
-main{
+main {
     display: flex;
-   justify-content: center;
+    justify-content: center;
 }
-.main_wrapper{
-    display: flex;
-    flex-direction: column;
-}
-.user_wrapper, .computer_wrapper, .score_wrapper, .new_game{
+
+.main_wrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 20%;
 }
-.score{
-    width:62px;
-    height: 62px;
+
+.user_wrapper,
+.computer_wrapper,
+.score_wrapper,
+.new_game {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.score {
+    width: 82px;
+    height: 82px;
     border: 1px solid #28a745;
     border-radius: 4px;
     font-size: 40px;
     text-align: center;
 }
-.new_game{
+
+.new_game {
     width: 100px;
 }
-.footer_wrapper{
+
+.footer_wrapper {
     display: flex;
     justify-content: space-between;
 }
+
+.win {
+        width: 62px;
+    height: 52px;
+    /* animation: mymove 1s ease-in .2s forwards; */
+}
+
+/* @keyframes mymove {
+    from {
+        border-color: red;
+    }
+
+    to {
+        border-color: blue;
+    }
+} */

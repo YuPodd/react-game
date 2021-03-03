@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import rock from '../assets/rock.png';
 import paper from '../assets/paper.png';
 import scissors from '../assets/scissors.png';
+import win from '../assets/win2.gif'
 import ReactDOM from 'react-dom';
 
  class Main extends Component {
@@ -28,7 +29,7 @@ import ReactDOM from 'react-dom';
          </div>
         </div>
         );
-   ReactDOM.render(animation_el, document.querySelector('.computer_icons_wrapper')); 
+     ReactDOM.render(animation_el, document.querySelector('.computer_icons_wrapper')); 
     }
     generateNumber () {
          const max = 3;
@@ -76,7 +77,7 @@ import ReactDOM from 'react-dom';
         let user = this.state.user;
         console.log(computer);
         console.log(user);
-        
+       
             if(computer === user){
                 console.log('win-win')
               
@@ -84,49 +85,60 @@ import ReactDOM from 'react-dom';
                 console.log('user + 1 to score, user win')
                 this.setState({
                   score:  this.state.score + 1
-                });
+                }, () => { this.checkScore() });
                
             } else if (computer === "rock" && user === "scissors"){
                 console.log('user - 1 to score, comp win')
                 this.setState({
                   score:  this.state.score - 1
-                });
+                }, () => { this.checkScore() });
+
             } else if (computer === "paper" && user === "rock"){
                 console.log('computer + 1 to score, comp win')
-                this.setState(score => ({
+                this.setState({
                   score: this.state.score - 1
-                }))
+                }, () => { this.checkScore() });
+
             } else if (computer === "paper" && user === "scissors"){
                 console.log('user + 1 to score,user win')
                 this.setState({
                   score:  this.state.score + 1
-                });
+                }, () => { this.checkScore() });
             } else if (computer === "scissors" && user === "paper"){
                 console.log('user - 1 to score, comp win')
                 this.setState({
                   score:  this.state.score - 1
-                });
+                }, () => { this.checkScore() });
             } else if (computer === "scissors" && user === "rock"){
                 console.log('user + 1 to score, user win')
                 this.setState({
                   score:  this.state.score + 1
-                });
-               
+                }, () => { this.checkScore() });
             }
-            console.log(this.state.score)
-            if (this.state.score === 5){
-              alert('you win!')
-            }
-        
-        
+            
+              
+      }
+      checkScore (){
+        if (this.state.score === 2){
+         const winElement = <img  className="win" src={win} alt="win"/>
+          alert('you win!');
+          
+            ReactDOM.render(winElement, document.querySelector('.score'));
+            setTimeout(() => {
+              this.startNewGame()
+            }, 2000);
+   
+
+        }
       }
       startNewGame (){
         const emptyElement = '';
             this.setState({
                 score: 0
                 });
-                ReactDOM.render(emptyElement, document.querySelector('.computer_icons_wrapper'));
-        }
+        ReactDOM.render(emptyElement, document.querySelector('.computer_icons_wrapper'));
+      }
+
       render() {
         return (
             <main>
