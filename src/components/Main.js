@@ -14,7 +14,8 @@ import startNewGame from './NewGame'
           score: 0
         };
       }
-    chooseElement(e){
+      
+      chooseElement(e){
         let chosenUserElement = e.target.className;
         console.log(chosenUserElement);
         this.setState({
