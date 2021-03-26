@@ -1,52 +1,41 @@
 main {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .main_wrapper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .user_wrapper,
 .computer_wrapper,
 .score_wrapper,
 .new_game {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
 }
 
 .score {
-    width: 82px;
-    height: 82px;
-    border: 1px solid #28a745;
-    border-radius: 4px;
-    font-size: 40px;
-    text-align: center;
+  width: 82px;
+  height: 82px;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  font-size: 40px;
+  text-align: center;
 }
 
 .new_game {
-    width: 100px;
+  width: 100px;
 }
 
 .footer_wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .win {
-        width: 62px;
-    height: 52px;
-    /* animation: mymove 1s ease-in .2s forwards; */
+  width: 62px;
+  height: 52px;
 }
-
-/* @keyframes mymove {
-    from {
-        border-color: red;
-    }
-
-    to {
-        border-color: blue;
-    }
-} */
