@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {gameElements} from "./constants"
 
 export default function User({getUserChoice}) {
@@ -9,6 +9,7 @@ export default function User({getUserChoice}) {
           type="button"
           value={name}
           className="user_button btn btn-outline-warning"
+          key={name}
         >
           <img
             src={icon}
