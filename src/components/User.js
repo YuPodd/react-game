@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import rock from "../assets/rock.png";
-import paper from "../assets/paper.png";
-import scissors from "../assets/scissors.png";
+import {gameElements} from "./constants"
 
 export default function User({getUserChoice}) {
-  const gameElements = [{ name: "rock", icon: rock }, { name: "paper", icon: paper }, { name: "scissors", icon: scissors }];
+  
   const gameButtons = gameElements.map(({name, icon}) => {
       return (
         <button

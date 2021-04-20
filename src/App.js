@@ -4,11 +4,11 @@ import Main from './components/Main-new';
 
 function App() {
   return (
-    <div className="wrapper">
+   <>
         <Header />
         <Main />
         <Footer />
-    </div>
+ </>
   );
 }
 
