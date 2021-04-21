@@ -13,11 +13,11 @@ main {
   align-items: center;
   margin-top: 5%;
 }
-/* .computer_button{
+.spinner{
   width: 90px;
   height: 78px;
-  padding: 6px 12px;
-} */
+  padding: 6px 22px;
+}
 .score {
   width: 82px;
   height: 82px;

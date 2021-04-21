@@ -4,6 +4,7 @@ import User from "./User";
 import Computer from "./Computer";
 import Score from "./Score";
 import { gameElements } from "./constants";
+import { css } from "@emotion/core";
 import CircleLoader from "react-spinners/CircleLoader";
 
 export default function Main() {
@@ -51,7 +52,7 @@ export default function Main() {
       <User getUserChoice={getUserChoice} />
       <section className="computer_wrapper">
       <h4>Computer:</h4>
-      {loading ? <CircleLoader color={color} loading={loading} size={50} /> : <Computer computerChoice={computerChoice} /> }
+      {loading ? <div className="spinner"><CircleLoader color={color} loading={loading} size={50} /></div> : <Computer computerChoice={computerChoice} /> }
       </section>
       <Score score={score} />
      </main>
