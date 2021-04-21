@@ -4,7 +4,6 @@ import User from "./User";
 import Computer from "./Computer";
 import Score from "./Score";
 import { gameElements } from "./constants";
-import { css } from "@emotion/core";
 import CircleLoader from "react-spinners/CircleLoader";
 import Win from "./Win";
 
