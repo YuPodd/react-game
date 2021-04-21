@@ -14,11 +14,17 @@ export default function Main() {
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
   const [color, setColor] = useState("#36a4d7;");
-  const maxScore = 1;
+  const maxScore = 2;
 
   useEffect(() => {
     compareElements();
   }, [userChoice, computerChoice]);
+
+function startNewGame(score){
+  setScore(score);
+  setUserChoice("");
+  setComputerChoice("");
+}
 
   function getUserChoice(name) {
     setUserChoice(name);
@@ -54,7 +60,7 @@ export default function Main() {
   return (
     <main>
       {score === maxScore ? (
-        <Win />
+        <Win startNewGame={startNewGame}/>
       ) : (
         <>
         <User getUserChoice={getUserChoice} />
