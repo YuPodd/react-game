@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "../styles/style.css"
+import "../styles/style.css";
 import User from "./User";
 import Computer from "./Computer";
 import Score from "./Score";
 import { gameElements } from "./constants";
 import { css } from "@emotion/core";
 import CircleLoader from "react-spinners/CircleLoader";
+import Win from "./Win";
 
 export default function Main() {
   const [userChoice, setUserChoice] = useState("");
@@ -13,6 +14,7 @@ export default function Main() {
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
   const [color, setColor] = useState("#36a4d7;");
+  const maxScore = 1;
 
   useEffect(() => {
     compareElements();
@@ -22,8 +24,8 @@ export default function Main() {
     setUserChoice(name);
     setLoading(true);
     setTimeout(() => {
-        createComputerChoice();
-      }, 500);
+      createComputerChoice();
+    }, 500);
   }
 
   function createComputerChoice() {
@@ -38,25 +40,37 @@ export default function Main() {
       (computerChoice.name === "paper" && userChoice === "scissors") ||
       (computerChoice.name === "rock" && userChoice === "paper")
     ) {
-     totalScore = 1;
+      totalScore = 1;
     } else if (
       (computerChoice.name === "rock" && userChoice === "scissors") ||
       (computerChoice.name === "paper" && userChoice === "rock") ||
       (computerChoice.name === "scissors" && userChoice === "paper")
     ) {
-      totalScore = - 1;
+      totalScore = -1;
     }
     setScore(score + totalScore);
   }
 
   return (
     <main>
-      <User getUserChoice={getUserChoice} />
-      <section className="computer_wrapper">
-      <h4>Computer:</h4>
-      {loading ? <div className="spinner"><CircleLoader color={color} loading={loading} size={50} /></div> : <Computer computerChoice={computerChoice} /> }
-      </section>
-      <Score score={score} />
-     </main>
+      {score === maxScore ? (
+        <Win />
+      ) : (
+        <>
+        <User getUserChoice={getUserChoice} />
+          <section className="computer_wrapper">
+            <h4>Computer:</h4>
+            {loading ? (
+              <div className="spinner">
+                <CircleLoader color={color} loading={loading} size={50} />
+              </div>
+            ) : (
+              <Computer computerChoice={computerChoice} />
+            )}
+          </section>
+          <Score score={score} maxScore={maxScore} /> 
+        </>
+      )}
+    </main>
   );
 }
