@@ -32,19 +32,21 @@ export default function Main() {
     setLoading(false);
   }
   function compareElements() {
+    let totalScore = 0;
     if (
       (computerChoice.name === "scissors" && userChoice === "rock") ||
       (computerChoice.name === "paper" && userChoice === "scissors") ||
       (computerChoice.name === "rock" && userChoice === "paper")
     ) {
-      setScore(score + 1);
+     totalScore = 1;
     } else if (
       (computerChoice.name === "rock" && userChoice === "scissors") ||
       (computerChoice.name === "paper" && userChoice === "rock") ||
       (computerChoice.name === "scissors" && userChoice === "paper")
     ) {
-      setScore(score - 1);
+      totalScore = - 1;
     }
+    setScore(score + totalScore);
   }
 
   return (
