@@ -49,8 +49,10 @@ export default function Main() {
   return (
     <main>
       <User getUserChoice={getUserChoice} />
-      <Computer computerChoice={computerChoice} />
-      <CircleLoader color={color} loading={loading} size={50} />
+      <section className="computer_wrapper">
+      <h4>Computer:</h4>
+      {loading ? <CircleLoader color={color} loading={loading} size={50} /> : <Computer computerChoice={computerChoice} /> }
+      </section>
       <Score score={score} />
      </main>
   );
