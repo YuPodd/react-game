@@ -40,11 +40,11 @@ main {
   justify-content: center;
   align-items: center;
 }
-.win {
+.result_video {
   height: calc(100vh - 110px);
   max-width: 100%;
 }
-.win_text{
+.result_text{
   position: absolute;
   color: #ffc107;
   text-shadow: 1px 1px black;

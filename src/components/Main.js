@@ -5,7 +5,7 @@ import Computer from "./Computer";
 import Score from "./Score";
 import { gameElements } from "./constants";
 import CircleLoader from "react-spinners/CircleLoader";
-import Win from "./Win";
+import Result from "./Result";
 
 export default function Main() {
   const [userChoice, setUserChoice] = useState("");
@@ -58,8 +58,8 @@ function startNewGame(score){
 
   return (
     <main>
-      {score === maxScore ? (
-        <Win startNewGame={startNewGame}/>
+      {score === maxScore || score === -maxScore ? (
+        <Result startNewGame={startNewGame} score={score}/>
       ) : (
         <>
         <User getUserChoice={getUserChoice} />
