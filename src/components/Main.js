@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useSound from 'use-sound';
 import "../styles/style.css";
 import User from "./User";
 import Computer from "./Computer";
@@ -6,14 +7,15 @@ import Score from "./Score";
 import { gameElements } from "./constants";
 import CircleLoader from "react-spinners/CircleLoader";
 import Result from "./Result";
+import change from "../assets/compChoise.wav"
 
 export default function Main() {
   const [userChoice, setUserChoice] = useState("");
   const [computerChoice, setComputerChoice] = useState("");
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [color, setColor] = useState("#36a4d7;");
-  const maxScore = 2;
+  const maxScore = 1;
+  const [play] = useSound(change);
 
   useEffect(() => {
     compareElements();
@@ -35,6 +37,7 @@ function startNewGame(score){
 
   function createComputerChoice() {
     const randomElement = Math.floor(Math.random() * gameElements.length);
+    play();
     setComputerChoice(gameElements[randomElement]);
     setLoading(false);
   }
@@ -67,7 +70,7 @@ function startNewGame(score){
             <h4>Computer:</h4>
             {loading ? (
               <div className="spinner">
-                <CircleLoader color={color} loading={loading} size={50} />
+                <CircleLoader color={"#36a4d7;"} loading={loading} size={50} />
               </div>
             ) : (
               <Computer computerChoice={computerChoice} />

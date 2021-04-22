@@ -5,9 +5,9 @@ class Header extends Component {
     return (
       <header>
         <nav className="navbar navbar-light bg-light">
-          <a className="navbar-brand" href="#">
+          <span className="navbar-brand">
             ROCK PAPER SCISSORS GAME
-          </a>
+          </span>
           <div className="form-group">
             <div className="custom-control custom-switch">
               <input
