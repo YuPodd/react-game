@@ -14,7 +14,7 @@ export default function Main() {
   const [computerChoice, setComputerChoice] = useState("");
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(false);
-  const maxScore = 1;
+  const maxScore = 2;
   const [play] = useSound(change);
 
   useEffect(() => {
