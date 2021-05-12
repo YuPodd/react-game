@@ -1,0 +1,57 @@
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user_wrapper,
+.computer_wrapper,
+.score_wrapper,
+.new_game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+}
+.spinner{
+  width: 90px;
+  height: 78px;
+  padding: 6px 22px;
+}
+.score {
+  width: 82px;
+  height: 82px;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.new_game {
+  width: 100px;
+}
+
+.footer_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.result_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result_video {
+  height: calc(100vh - 110px);
+  max-width: 100%;
+}
+.result_text{
+  position: absolute;
+  color: #ffc107;
+  text-shadow: 1px 1px black;
+}
+.try_again{
+  position: absolute;
+  position: absolute;
+  top: 55%;
+  background: white;
+}
