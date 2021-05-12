@@ -10,13 +10,13 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light");
   }
   return (
-   <> 
+    <div style={theme === 'light' ? lightTheme : darkTheme}>
       <Header changeTheme={changeTheme} />
-      <div style={theme === 'light' ? lightTheme : darkTheme}>
+     
       <Main />
-      </div>
+      
       <Footer />
-    </>
+      </div>
   );
 }
 export default App;

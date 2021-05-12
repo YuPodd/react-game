@@ -4,7 +4,7 @@ import rs_logo from "../assets/rs_logo.svg";
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer py-3 fixed-bottom bg-light">
+      <footer className="footer py-3 light-grey">
         <div className="footer_wrapper">
           <a href="https://github.com/YuPodd">
             © 2021 Copyright: Yuliya Paddubnik

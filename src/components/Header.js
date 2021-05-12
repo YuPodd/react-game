@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Header({changeTheme}) {
   return (
     <header>
-      <nav className="navbar navbar-light bg-light">
+      <nav className="navbar light-grey">
         <span className="navbar-brand">ROCK PAPER SCISSORS GAME</span>
         <div className="form-group">
           <div className="custom-control custom-switch">

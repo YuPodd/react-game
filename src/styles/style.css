@@ -3,9 +3,11 @@ main {
   align-items: center;
   flex-direction: column;
   height: calc(100vh - 116px);
-  transition: all 0.50s linear;
+  transition: all 0.5s linear;
 }
-
+.light-grey {
+  box-shadow: 2px 1px 18px #e1dddd;
+}
 .user_wrapper,
 .computer_wrapper,
 .score_wrapper,
@@ -15,7 +17,7 @@ main {
   align-items: center;
   margin-top: 3%;
 }
-.spinner{
+.spinner {
   width: 90px;
   height: 78px;
   padding: 6px 22px;
@@ -37,7 +39,7 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.result_wrapper{
+.result_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,14 +48,17 @@ main {
   height: calc(100vh - 110px);
   max-width: 100%;
 }
-.result_text{
+.result_text {
   position: absolute;
   color: #ffc107;
   text-shadow: 1px 1px black;
 }
-.try_again{
+.try_again {
   position: absolute;
   position: absolute;
   top: 55%;
   background: white;
+}
+a{
+  color: inherit;
 }
